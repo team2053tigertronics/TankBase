@@ -140,12 +140,13 @@ void DriveCommand::CallToTankDrive() {
 	if(turnAxis == 0)
 	{
 		Robot::drivebaseSubsystem->GetTigerDrive()->SetIsRotDoneOverride(false);
-		Robot::drivebaseSubsystem->TankDrive(throttleAxis, finalRotVal, isRightShoulderPressed);
+		//Robot::drivebaseSubsystem->TankDrive(throttleAxis, finalRotVal, isRightShoulderPressed);
 	}
 	else
 	{
 		Robot::drivebaseSubsystem->GetTigerDrive()->SetIsRotDoneOverride(true);
 		Robot::drivebaseSubsystem->GetTigerDrive()->SetIsRotDone(true);
-		Robot::drivebaseSubsystem->TankDrive(throttleAxis, turnAxis, isRightShoulderPressed);
+		//Robot::drivebaseSubsystem->TankDrive(throttleAxis, turnAxis, isRightShoulderPressed);
 	}
+	Robot::drivebaseSubsystem->TankDrive(throttleAxis, -turnAxis, isRightShoulderPressed);
 }

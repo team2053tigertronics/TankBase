@@ -11,6 +11,7 @@ DrivebaseSubsystem::DrivebaseSubsystem() : frc::Subsystem("DrivebaseSubsystem") 
   imu = std::make_shared<AHRS>(frc::SPI::Port::kMXP);
   tigerDrive = std::make_unique<TigerDrive>(imu);
   driveSystem = std::make_unique<frc::DifferentialDrive>(*leftLeaderTalon, *rightLeaderTalon);
+  ConfigureTalons();
 }
 
 void DrivebaseSubsystem::InitDefaultCommand() {
@@ -18,7 +19,7 @@ void DrivebaseSubsystem::InitDefaultCommand() {
 }
 
 void DrivebaseSubsystem::TankDrive(double throttleJoystick, double turnJoystick, bool quickTurnEnabled) {
-  driveSystem->CurvatureDrive(throttleJoystick, turnJoystick, quickTurnEnabled);
+  driveSystem->ArcadeDrive(throttleJoystick, turnJoystick);
 }
 
 void DrivebaseSubsystem::ConfigureTalons() {
@@ -30,13 +31,13 @@ void DrivebaseSubsystem::ConfigureTalons() {
   rightLeaderTalon->ConfigFactoryDefault();
   rightFollowerTalon->ConfigFactoryDefault();
 
-  leftFollowerTalon->Follow(*leftLeaderTalon);
-  rightFollowerTalon->Follow(*rightLeaderTalon);
+  leftFollowerTalon->Follow(*leftLeaderTalon.get());
+  rightFollowerTalon->Follow(*rightLeaderTalon.get());
 
   //only change these
-  leftLeaderTalon->SetInverted(false);
+  leftLeaderTalon->SetInverted(true);
   leftFollowerTalon->SetInverted(false);
-  rightLeaderTalon->SetInverted(false);
+  rightLeaderTalon->SetInverted(true);
   rightFollowerTalon->SetInverted(false);
   //change these if you have encoders and make sure they increase in value when talons are green
   leftLeaderTalon->SetSensorPhase(true);
