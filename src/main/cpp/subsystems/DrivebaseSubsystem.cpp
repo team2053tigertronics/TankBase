@@ -19,7 +19,7 @@ void DrivebaseSubsystem::InitDefaultCommand() {
 }
 
 void DrivebaseSubsystem::TankDrive(double throttleJoystick, double turnJoystick, bool quickTurnEnabled) {
-  driveSystem->ArcadeDrive(throttleJoystick, turnJoystick);
+  driveSystem->CurvatureDrive(throttleJoystick, turnJoystick, quickTurnEnabled);
 }
 
 void DrivebaseSubsystem::ConfigureTalons() {
