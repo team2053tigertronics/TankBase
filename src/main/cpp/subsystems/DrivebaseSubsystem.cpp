@@ -26,19 +26,19 @@ void DrivebaseSubsystem::ConfigureTalons() {
   //make sure when you go forward on joystick, you get a positive number
   //and that ALL Talons turn green
   //if not change below
-  leftLeaderTalon->ConfigFactoryDefault();
-  leftFollowerTalon->ConfigFactoryDefault();
-  rightLeaderTalon->ConfigFactoryDefault();
-  rightFollowerTalon->ConfigFactoryDefault();
+  //leftLeaderTalon->ConfigFactoryDefault();
+  //leftFollowerTalon->ConfigFactoryDefault();
+  //rightLeaderTalon->ConfigFactoryDefault();
+  //rightFollowerTalon->ConfigFactoryDefault();
 
   leftFollowerTalon->Follow(*leftLeaderTalon.get());
   rightFollowerTalon->Follow(*rightLeaderTalon.get());
 
   //only change these
-  leftLeaderTalon->SetInverted(true);
+  leftLeaderTalon->SetInverted(false);
   leftFollowerTalon->SetInverted(false);
   rightLeaderTalon->SetInverted(true);
-  rightFollowerTalon->SetInverted(false);
+  rightFollowerTalon->SetInverted(true);
   //change these if you have encoders and make sure they increase in value when talons are green
   leftLeaderTalon->SetSensorPhase(true);
   rightLeaderTalon->SetSensorPhase(true);

@@ -8,6 +8,6 @@ public:
   const std::unique_ptr<TigerJoystick>& GetDriverJoystick();
   const std::unique_ptr<TigerJoystick>& GetOperatorJoystick();
 private:
-  std::unique_ptr<TigerJoystick> operatorJoystick();
-  std::unique_ptr<TigerJoystick> driverJoystick();
+  std::unique_ptr<TigerJoystick> operatorJoystick;
+  std::unique_ptr<TigerJoystick> driverJoystick;
 };

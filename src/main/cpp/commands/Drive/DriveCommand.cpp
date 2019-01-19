@@ -148,5 +148,5 @@ void DriveCommand::CallToTankDrive() {
 		Robot::drivebaseSubsystem->GetTigerDrive()->SetIsRotDone(true);
 		//Robot::drivebaseSubsystem->TankDrive(throttleAxis, turnAxis, isRightShoulderPressed);
 	}
-	Robot::drivebaseSubsystem->TankDrive(throttleAxis, -turnAxis, isRightShoulderPressed);
+	Robot::drivebaseSubsystem->TankDrive(-throttleAxis, turnAxis, isRightShoulderPressed);
 }
