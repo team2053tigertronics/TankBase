@@ -16,3 +16,6 @@ const int YAW_CONTROLLER_TOLERANCE = 2;
 
 const int PORT_NUMBER = 1;
 
+const int INTAKE_TALON_ID = 2;
+const int WHEEL_INTAKE_TALON_ID = 6;
+
